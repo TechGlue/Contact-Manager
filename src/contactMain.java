@@ -4,12 +4,15 @@ import java.util.Scanner;
 
 /*
 ## to do ##
-write a sort
+write a sort//done
 clear method//done and working//will clear the entire folder as well...
-clean up code so its nots all in main class
+clean up code so its nots all in main class..maybe
 take in lower case inputs as well
 make it save and ready input into array on start up//so far it looks like the save file function is working
 needs a single remove method that wil clear one single charcter
+
+NOTE THE REMOVE METHOD IS STILL IN PROGRESS.....GOT TIRED WITH CODE ;(
+
 
 
  */
@@ -36,8 +39,10 @@ needs a single remove method that wil clear one single charcter
 
         boolean quitTrigger = false;
         String choice;
+        System.out.print("\n(づ￣ ³￣)づ  TYPE IN THE WORD LIST TO SHOW COMMANDS FOR THE CONTACT MANAGER  (づ￣ ³￣)づ \n");
 
         do{
+
             System.out.println("\n---Chose a menu option---");
 
             System.out.print("[Menu] Enter an action: " );
@@ -55,19 +60,40 @@ needs a single remove method that wil clear one single charcter
                 case "list":
                     showMe();
                     break;
+                case "remove":
+                    remove(kb);
+                    break;
                 case "clear":
                     clear();
                     break;
-                    case "exit":
-                    quitTrigger = true;
-                    System.out.println("Exiting contact manager...");
+                case "sort":
+                    selectionSort();
+                    System.out.println("The list of contacts have been successfully sorted");
                     break;
+                case "exit":
+                quitTrigger = true;
+                System.out.println("Exiting contact manager...");
+                break;
+
                 default:
                     System.out.println("Invalid choice, please try again");
 
             }
         }while(!quitTrigger);
 
+
+    }
+    public void remove(Scanner kb){//single remove method needs works got tired so you know what it is
+        System.out.print("Please enter the name of contact:");
+        String name = kb.next();
+
+        System.out.println("Please enter last name of the contacts");
+        String lastname = kb.next();
+
+        System.out.println("Please enter the phone number of the contact");
+        String phone = kb.next();
+
+        contact newContact = new contact(name,lastname, phone);
 
     }
 
@@ -86,11 +112,13 @@ needs a single remove method that wil clear one single charcter
     public void showMe(){
         System.out.println("\n ---Commands for contact manager---");
         System.out.println (
-                "1) list ( To display all the commands in the manager)\n" +
-                "2) show (will display all the contacts added onto the list)\n" +
-                "3) clear (will clear the entire list)\n" +
-                "4) remove (will remove a single contact from the list)\n" +
-                "5) Alphabetize and sort the list");
+                "1) add (will add a new contact to the list)\n"+
+                "2) remove (will remove a single contact from the list) "+//note feature still in progress
+                "3) list ( To display all the commands in the manager)\n" +
+                "4) show (will display all the contacts added onto the list)\n" +
+                "5) clear (will clear the entire list)\n" +
+                "6) remove (will remove a single contact from the list)\n" +
+                "7) sort (Alphabetizes and sorts your contacts)\n");
 
     }
 
@@ -181,6 +209,27 @@ needs a single remove method that wil clear one single charcter
         }
      }
 
+     public void selectionSort() {
+         if (this.array == null || this.array.size() < 2)
+             return;
 
+         int start, smallest, cur;
+         contact temp;
+
+         for (start = 0; start < this.array.size() - 1; start++) {
+             smallest = start;
+
+             for (cur = start + 1; cur < this.array.size(); cur++) {
+                 if (this.array.get(cur).compareTo(array.get(smallest)) < 0)
+                     smallest = cur;
+             }
+
+             temp = array.get(start);
+             array.set(start, array.get(smallest));
+             array.set(smallest, temp);
+
+         }
+
+     }
 
 }

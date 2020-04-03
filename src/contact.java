@@ -28,4 +28,28 @@ public class contact{
         return phoneNumber;
     }
 
+
+
+
+    public int compareTo(contact that){
+
+        if(this.name.compareTo(that.name)>0)
+            return 1;
+
+        if(this.name.compareTo(that.name)<0)
+            return -1;
+        if(this.surName.compareTo(that.surName)>0)
+            return 1;
+
+        if(this.surName.compareTo(that.surName)<0)
+            return -1;
+        if(this.phoneNumber.compareTo(that.phoneNumber)>0)
+            return 1;
+
+        if(this.phoneNumber.compareTo(that.phoneNumber)<0)
+            return -1;
+
+        return 0;
+    }
+
 }
