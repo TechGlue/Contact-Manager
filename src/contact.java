@@ -1,4 +1,5 @@
 public class contact{
+    //class used for helper methods used in sorts, compares and equals
 
     private String name;
     private String surName;
@@ -9,7 +10,6 @@ public class contact{
         this.surName = surName;
         this.phoneNumber = phoneNumber;
     }
-
 
     @Override
     public String toString(){
@@ -28,8 +28,17 @@ public class contact{
         return phoneNumber;
     }
 
+    @Override
+    public boolean equals(Object that){
+        if(that == this)
+            return true;
+        if(!(that instanceof contact))
+            return false;
 
+        contact another = (contact) that;
 
+        return this.phoneNumber.equals(another.phoneNumber) && this.surName.equals(another.surName) && this.phoneNumber.equals(another.phoneNumber);
+    }
 
     public int compareTo(contact that){
 
