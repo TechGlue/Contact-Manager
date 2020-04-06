@@ -2,18 +2,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/*
-## to do ##
-write a sort//done
-clear method//done and working//will clear the entire folder as well...
-clean up code so its nots all in main class..maybe
-take in lower case inputs as well for the menu
-make it save and ready input into array on start up//so far it looks like the save file function is working//done
-needs a single remove method that wil clear one single charcter--in progress
-
-NOTE THE REMOVE METHOD IS STILL IN PROGRESS.....GOT TIRED WITH CODE ;(
- */
-
  class contactMain {
 
     protected ArrayList <contact> array = new ArrayList<>();
@@ -29,6 +17,59 @@ NOTE THE REMOVE METHOD IS STILL IN PROGRESS.....GOT TIRED WITH CODE ;(
         }
 
     }
+
+     public void add (){//will add a new contact to the list
+         Scanner input = new Scanner(System.in);
+
+         System.out.print("Please enter a first name: ");
+         String name = input.next();
+         name = name.toLowerCase();
+
+         System.out.print("Please enter a last name: ");
+         String surName = input.next();
+         surName = surName.toLowerCase();
+
+         System.out.print("Please enter a phone number: ");
+         String phoneNumber = input.next();
+         phoneNumber = phoneNumber.toLowerCase();
+
+         contact newContact = new contact(name,surName,phoneNumber);
+         array.add(newContact);
+
+         System.out.println("\nContact successfully added");
+
+     }
+
+     public void clear(){//used for clearing the array of all contacts
+         if(this.array.size() == 0)
+             System.out.println("The list has been cleared of all contacts");
+
+         else {
+             Scanner kb = new Scanner(System.in);
+             System.out.println("please type in yes to confirm the clear or no to return back to menu.");
+             String choice = kb.next();
+             choice = choice.toLowerCase();
+
+             if(choice.equals("yes")) {
+
+                 try {
+                     this.array.clear();
+                     FileWriter fwOb = new FileWriter("contacts.txt", false);
+                     PrintWriter pwOb = new PrintWriter(fwOb, false);
+                     pwOb.flush();
+                     pwOb.close();
+                     fwOb.close();
+                     System.out.println("The list has been cleared of all contacts");
+                 } catch (IOException e) {
+                     e.printStackTrace();
+                 }
+
+             }
+             else
+                 System.out.println("There have been no changes to the list...returning back to main menu");
+         }
+
+     }
 
     public void displayMenu(){//menu
         Scanner kb = new Scanner(System.in);
@@ -82,6 +123,53 @@ NOTE THE REMOVE METHOD IS STILL IN PROGRESS.....GOT TIRED WITH CODE ;(
         }while(!quitTrigger);
 
     }
+
+     public void display(){//prints all of the contents of the array to the screen
+         if(this.array.size() == 0)
+             System.out.println("There are no contacts to display...Returning to menu");
+
+         else {
+             for (contact contact : this.array) {
+                 System.out.println(contact + "\n");
+             }
+             System.out.println("--End of contacts lists--");
+         }
+
+     }
+
+     public void onStart() throws FileNotFoundException {//helper method used for saving contacts for next time program is ran
+         Scanner newFile = new Scanner(new File("contacts.txt"));
+
+         while(newFile.hasNext()){
+             String name = newFile.next();
+             String lastName = newFile.next();
+             String phoneNumber = newFile.next();
+
+             contact newContact = new contact(name,lastName,phoneNumber);
+             this.array.add(newContact);
+         }
+         newFile.close();
+
+     }
+
+     public void onEnd(){//saves contents of array for next start up
+         try {
+             PrintStream newFile = new PrintStream("contacts.txt");
+             for (contact ref : this.array) {
+                 newFile.println(ref.getName());
+                 newFile.println(ref.getSurName());
+                 newFile.println(ref.getPhoneNumber());
+             }
+             System.out.println("contacts successfully saved...");
+             newFile.flush();
+             newFile.close();
+
+         } catch (FileNotFoundException e) {
+             System.out.println(e + "File not found exception....");
+         }
+
+     }
+
     public void remove(Scanner kb){//single remove method needs works got tired so you know what it is
         System.out.print("Please enter the name of contact: ");
         String name = kb.next();
@@ -111,19 +199,6 @@ NOTE THE REMOVE METHOD IS STILL IN PROGRESS.....GOT TIRED WITH CODE ;(
 
     }
 
-    public void display(){//prints all of the contents of the array to the screen
-        if(this.array.size() == 0)
-            System.out.println("There are no contacts to display...Returning to menu");
-
-        else {
-            for (contact contact : this.array) {
-                System.out.println(contact + "\n");
-            }
-            System.out.println("--End of contacts lists--");
-        }
-
-    }
-
     public void showMe(){//showMe is a used for displaying menu commands to the screen
         System.out.println("\n ---Commands for contact manager---");
         System.out.println (
@@ -139,105 +214,17 @@ NOTE THE REMOVE METHOD IS STILL IN PROGRESS.....GOT TIRED WITH CODE ;(
     }
 
     public void search(Scanner kb){//will search contacts list by first name and display results
-
-        System.out.print("Please enter a first name: ");
+        System.out.print("\nPlease enter a first name: ");
         String name = kb.next();
         name = name.toLowerCase();
 
-        for(int i =0; i<this.array.size(); i++){
-            contact temp = array.get(i);
-            if(temp.getName().equals(name)){
-                System.out.println(temp);
+        for (contact temp : this.array) {
+            if (temp.getName().equals(name)) {
+                System.out.println("\n" + temp);
             }
         }
 
     }
-
-     public void add (){//will add a new contact to the list
-         Scanner input = new Scanner(System.in);
-
-         System.out.print("Please enter a first name: ");
-         String name = input.next();
-         name = name.toLowerCase();
-
-         System.out.print("Please enter a last name: ");
-         String surName = input.next();
-         surName = surName.toLowerCase();
-
-         System.out.print("Please enter a phone number: ");
-         String phoneNumber = input.next();
-         phoneNumber = phoneNumber.toLowerCase();
-
-         contact newContact = new contact(name,surName,phoneNumber);
-         array.add(newContact);
-
-         System.out.println("\nContact successfully added");
-
-     }
-
-     public void clear(){//used for clearing the array of all contacts
-        if(this.array.size() == 0)
-            System.out.println("The list has been cleared of all contacts");
-
-        else {
-            Scanner kb = new Scanner(System.in);
-            System.out.println("please type in yes to confirm the clear or no to return back to menu.");
-            String choice = kb.next();
-            choice = choice.toLowerCase();
-
-            if(choice.equals("yes")) {
-
-                try {
-                    this.array.clear();
-                    FileWriter fwOb = new FileWriter("contacts.txt", false);
-                    PrintWriter pwOb = new PrintWriter(fwOb, false);
-                    pwOb.flush();
-                    pwOb.close();
-                    fwOb.close();
-                    System.out.println("The list has been cleared of all contacts");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-            }
-            else
-                System.out.println("There have been no changes to the list...returning back to main menu");
-        }
-
-     }
-
-     public void onStart() throws FileNotFoundException {//helper method used for saving contacts for next time program is ran
-        Scanner newFile = new Scanner(new File("contacts.txt"));
-
-        while(newFile.hasNext()){
-            String name = newFile.next();
-            String lastName = newFile.next();
-            String phoneNumber = newFile.next();
-
-            contact newContact = new contact(name,lastName,phoneNumber);
-            this.array.add(newContact);
-        }
-        newFile.close();
-
-     }
-
-     public void onEnd(){//saves contents of array for next start up
-        try {
-            PrintStream newFile = new PrintStream("contacts.txt");
-            for (contact ref : this.array) {
-                newFile.println(ref.getName());
-                newFile.println(ref.getSurName());
-                newFile.println(ref.getPhoneNumber());
-            }
-            System.out.println("contacts successfully saved...");
-            newFile.flush();
-            newFile.close();
-
-        } catch (FileNotFoundException e) {
-            System.out.println(e + "File not found exception....");
-        }
-
-     }
 
      public void selectionSort() {//sort
          if (this.array == null || this.array.size() < 2)

@@ -1,6 +1,5 @@
 public class contact{
     //class used for helper methods used in sorts, compares and equals
-
     private String name;
     private String surName;
     private String phoneNumber;
@@ -9,35 +8,6 @@ public class contact{
         this.name = name;
         this.surName = surName;
         this.phoneNumber = phoneNumber;
-    }
-
-    @Override
-    public String toString(){
-        return "First Name: " + name + "\nLast Name: " + surName + "\nPhone: " + phoneNumber;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getSurName() {
-        return surName;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    @Override
-    public boolean equals(Object that){
-        if(that == this)
-            return true;
-        if(!(that instanceof contact))
-            return false;
-
-        contact another = (contact) that;
-
-        return this.phoneNumber.equals(another.phoneNumber) && this.surName.equals(another.surName) && this.phoneNumber.equals(another.phoneNumber);
     }
 
     public int compareTo(contact that){
@@ -59,6 +29,35 @@ public class contact{
             return -1;
 
         return 0;
+    }
+
+    @Override
+    public boolean equals(Object that){
+        if(that == this)
+            return true;
+        if(!(that instanceof contact))
+            return false;
+
+        contact another = (contact) that;
+
+        return this.phoneNumber.equals(another.phoneNumber) && this.surName.equals(another.surName) && this.phoneNumber.equals(another.phoneNumber);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurName() {
+        return surName;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    @Override
+    public String toString(){
+        return "First Name: " + name + "\nLast Name: " + surName + "\nPhone: " + phoneNumber;
     }
 
 }

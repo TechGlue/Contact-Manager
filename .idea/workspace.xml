@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79de9682-5fea-4812-830f-695554c0fda8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/contact.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/contactMain.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contacts.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contacts/contact.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contacts/contact.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contacts/contactMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contacts/contactMain.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/contact.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/contactMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/contactMain.java" afterDir="false" />
     </list>
@@ -36,22 +41,29 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1Zs4UwBRhSANYLi58EQpF9VoTsr" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
   <component name="RunManager">
@@ -83,12 +95,16 @@
       <workItem from="1585702776514" duration="20255000" />
       <workItem from="1585891264810" duration="351000" />
       <workItem from="1585891638531" duration="4886000" />
-      <workItem from="1586041932099" duration="5230000" />
+      <workItem from="1586041932099" duration="6314000" />
+      <workItem from="1586135807568" duration="937000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser" timestamp="1585819119141">
@@ -107,26 +123,26 @@
       <screen x="62" y="25" width="1858" height="1055" />
     </state>
     <state x="760" y="281" width="452" height="543" key="FileChooserDialogImpl/62.25.1858.1055@62.25.1858.1055" timestamp="1585897068050" />
-    <state width="1812" height="643" key="GridCell.Tab.0.bottom" timestamp="1586046945147">
+    <state width="1812" height="211" key="GridCell.Tab.0.bottom" timestamp="1586047878058">
       <screen x="62" y="25" width="1858" height="1055" />
     </state>
     <state width="1493" height="190" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585821238682" />
-    <state width="1812" height="643" key="GridCell.Tab.0.bottom/62.25.1858.1055@62.25.1858.1055" timestamp="1586046945147" />
-    <state width="1812" height="643" key="GridCell.Tab.0.center" timestamp="1586046945147">
+    <state width="1812" height="211" key="GridCell.Tab.0.bottom/62.25.1858.1055@62.25.1858.1055" timestamp="1586047878058" />
+    <state width="1812" height="211" key="GridCell.Tab.0.center" timestamp="1586047878058">
       <screen x="62" y="25" width="1858" height="1055" />
     </state>
     <state width="1493" height="190" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585821238682" />
-    <state width="1812" height="643" key="GridCell.Tab.0.center/62.25.1858.1055@62.25.1858.1055" timestamp="1586046945147" />
-    <state width="1812" height="643" key="GridCell.Tab.0.left" timestamp="1586046945147">
+    <state width="1812" height="211" key="GridCell.Tab.0.center/62.25.1858.1055@62.25.1858.1055" timestamp="1586047878058" />
+    <state width="1812" height="211" key="GridCell.Tab.0.left" timestamp="1586047878057">
       <screen x="62" y="25" width="1858" height="1055" />
     </state>
     <state width="1493" height="190" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585821238682" />
-    <state width="1812" height="643" key="GridCell.Tab.0.left/62.25.1858.1055@62.25.1858.1055" timestamp="1586046945147" />
-    <state width="1812" height="643" key="GridCell.Tab.0.right" timestamp="1586046945147">
+    <state width="1812" height="211" key="GridCell.Tab.0.left/62.25.1858.1055@62.25.1858.1055" timestamp="1586047878057" />
+    <state width="1812" height="211" key="GridCell.Tab.0.right" timestamp="1586047878058">
       <screen x="62" y="25" width="1858" height="1055" />
     </state>
     <state width="1493" height="190" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585821238682" />
-    <state width="1812" height="643" key="GridCell.Tab.0.right/62.25.1858.1055@62.25.1858.1055" timestamp="1586046945147" />
+    <state width="1812" height="211" key="GridCell.Tab.0.right/62.25.1858.1055@62.25.1858.1055" timestamp="1586047878058" />
     <state x="397" y="95" key="SettingsEditor" timestamp="1586042008192">
       <screen x="62" y="25" width="1858" height="1055" />
     </state>
